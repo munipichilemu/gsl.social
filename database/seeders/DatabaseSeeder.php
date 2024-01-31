@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'name' => 'Marco González Luengo',
             'email' => 'dev@nqu.me',
-            'password' => "$2y$12$uQe.2KpdchyI.cQR6FKVveJaao/TTEGQdJhYFf.vfaBOEXBmJTJEa",
+            'password' => '$2y$12$uQe.2KpdchyI.cQR6FKVveJaao/TTEGQdJhYFf.vfaBOEXBmJTJEa',
             'remember_token' => 'Hql8wCaPM91f1cOAvZ8nCIqzMP5uJnx29auXgxjTGYebVD3vqTKyoxUuKnvV',
         ]);
     }
