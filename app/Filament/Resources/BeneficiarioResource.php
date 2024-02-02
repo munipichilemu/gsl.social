@@ -46,6 +46,7 @@ class BeneficiarioResource extends Resource
                     ->mask('999 999 999')
                     ->prefix('+56'),
                 Country::make('nacionalidad')
+                    ->required()
                     ->searchable()
                     ->default('CL'),
                 Forms\Components\MarkdownEditor::make('anotaciones')
@@ -76,6 +77,7 @@ class BeneficiarioResource extends Resource
                     ->prefix('+56')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nacionalidad')
+                    ->formatStateUsing(fn (string $state): string => Beneficiario::pais($state))
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Fecha Ingreso')
