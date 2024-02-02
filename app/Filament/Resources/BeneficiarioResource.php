@@ -43,6 +43,7 @@ class BeneficiarioResource extends Resource
                 Forms\Components\TextInput::make('direccion'),
                 Forms\Components\TextInput::make('telefono')
                     ->tel()
+                    ->mask('999 999 999')
                     ->prefix('+56'),
                 Country::make('nacionalidad')
                     ->searchable()
