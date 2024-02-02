@@ -24,14 +24,7 @@ class BeneficiarioResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('rut')
                     ->rules('rut')
-                    ->live(onBlur: true)
                     ->formatStateUsing(fn (?string $state): string => $state ?? '')
-                    ->afterStateUpdated(function (?string $state) {
-                        if (strlen($state) > 3) {
-                            $state = Rut::parse($state)->format();
-                        }
-                        return $state;
-                    })
                     ->required(),
                 Forms\Components\TextInput::make('nombres')
                     ->required()
