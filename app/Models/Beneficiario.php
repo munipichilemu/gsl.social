@@ -23,8 +23,6 @@ class Beneficiario extends Model
 
     public function shouldAppendRut(): bool
     {
-        $this->append('rut');
-
-        return false;
+        return true;
     }
 }

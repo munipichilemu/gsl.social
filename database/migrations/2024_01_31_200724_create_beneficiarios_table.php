@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('nombres')->nullable(false);
             $table->string('apellido_1')->nullable(false);
             $table->string('apellido_2')->nullable(false);
-            $table->string('direccion');
-            $table->integer('telefono');
+            $table->string('direccion')->nullable();
+            $table->integer('telefono')->nullable();
             $table->string('nacionalidad', 2);
-            $table->text('anotaciones');
+            $table->text('anotaciones')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
