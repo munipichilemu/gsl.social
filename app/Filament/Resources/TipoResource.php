@@ -3,28 +3,30 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\TipoResource\Pages;
-use App\Filament\Resources\TipoResource\RelationManagers;
 use App\Models\Tipo;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+
 use function Livewire\str as str;
 
 class TipoResource extends Resource
 {
     protected static ?string $model = Tipo::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+
+    protected static ?string $navigationGroup = 'Administración';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nombre')
+                Forms\Components\TextInput::make('name')
                     ->required(),
-                Forms\Components\MarkdownEditor::make('descripcion')
+                Forms\Components\MarkdownEditor::make('description')
                     ->columnSpanFull(),
             ]);
     }
@@ -33,9 +35,9 @@ class TipoResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nombre')
-                    ->description(fn (Tipo $record) => str((string) $record->descripcion)->inlineMarkdown()->toHtmlString())
-                    ->searchable()
+                Tables\Columns\TextColumn::make('name')
+                    ->description(fn (Tipo $record) => str((string) $record->description)->inlineMarkdown()->toHtmlString())
+                    ->searchable(),
             ])
             ->filters([
                 //
