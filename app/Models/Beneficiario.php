@@ -13,24 +13,29 @@ class Beneficiario extends Model
 
     protected $fillable = [
         'rut',
-        'nombres',
-        'apellido_1',
-        'apellido_2',
-        'direccion',
-        'telefono',
-        'nacionalidad',
-        'anotaciones',
+        'names',
+        'lastname_1',
+        'lastname_2',
+        'address',
+        'phone',
+        'nationality',
+        'annotations',
     ];
 
-    public function shouldAppendRut(): bool
-    {
-        return true;
-    }
+    protected $appends = [
+        'rut',
+        'full_name',
+    ];
 
-    static public function pais(string $country_code): string
+    public static function country(string $country_code): string
     {
         $country = new Country('list');
 
         return $country->getList()[$country_code];
+    }
+
+    public function getFullNameAttribute(): string
+    {
+        return "{$this->names} {$this->lastname_1} {$this->lastname_2}";
     }
 }

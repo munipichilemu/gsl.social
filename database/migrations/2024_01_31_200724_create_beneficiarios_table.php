@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('beneficiarios', function (Blueprint $table) {
             $table->id();
             $table->rut()->index();
-            $table->string('nombres')->nullable(false);
-            $table->string('apellido_1')->nullable(false);
-            $table->string('apellido_2')->nullable(false);
-            $table->string('direccion')->nullable();
-            $table->integer('telefono')->nullable();
-            $table->string('nacionalidad', 2);
-            $table->text('anotaciones')->nullable();
+            $table->string('names')->nullable(false);
+            $table->string('lastname_1')->nullable(false);
+            $table->string('lastname_2')->nullable(false);
+            $table->string('address')->nullable();
+            $table->integer('phone')->nullable();
+            $table->string('nationality', 2);
+            $table->text('annotations')->nullable();
+            $table->string('full_name')->virtualAs("names || ' ' || lastname_1 || ' ' || lastname_2");
             $table->timestamps();
             $table->softDeletes();
         });
