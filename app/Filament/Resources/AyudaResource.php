@@ -39,7 +39,8 @@ class AyudaResource extends Resource
                     ->columnStart(1),
                 Forms\Components\DatePicker::make('social_report_date')
                     ->label('Fecha Informe Social')
-                    ->prefixIcon('heroicon-o-calendar-days'),
+                    ->prefixIcon('heroicon-o-calendar-days')
+                    ->required(),
 
                 Forms\Components\TextInput::make('amount_given')
                     ->label('Monto ayuda otorgada')
