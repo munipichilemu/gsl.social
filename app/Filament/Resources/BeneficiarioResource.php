@@ -30,8 +30,7 @@ class BeneficiarioResource extends Resource
                 Forms\Components\TextInput::make('names')
                     ->label('Nombres')
                     ->columnStart(1)
-                    ->required()
-                    ->live(),
+                    ->required(),
                 Forms\Components\TextInput::make('lastname_1')
                     ->label('Primer Apellido')
                     ->required(),
@@ -47,9 +46,11 @@ class BeneficiarioResource extends Resource
                     ->prefix('+56'),
                 Country::make('nationality')
                     ->label('Nacionalidad')
-                    ->required()
-                    ->default('CL'),
+                    ->default('CL')
+                    ->required(),
+
                 Forms\Components\MarkdownEditor::make('annotations')
+                    ->label('Notas')
                     ->columnSpanFull(),
             ])
             ->columns(3);
