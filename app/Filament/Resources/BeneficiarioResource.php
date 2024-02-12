@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BeneficiarioResource\Pages;
+use App\Forms\Components\RutInput;
 use App\Models\Beneficiario;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -21,10 +22,11 @@ class BeneficiarioResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('rut')
-                    ->label('RUT')
-                    ->rules('rut')
-                    ->formatStateUsing(fn (?string $state): string => $state ?? '')
+                RutInput::make('rut')
+                    ->label('RUT Beneficiario')
+                    ->rules(['rut', 'num_unique:beneficiarios,rut_num'])
+                    ->rut()
+                    ->validationAttribute('beneficiario')
                     ->required(),
 
                 Forms\Components\TextInput::make('names')
