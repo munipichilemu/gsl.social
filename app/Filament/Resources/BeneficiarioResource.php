@@ -89,7 +89,7 @@ class BeneficiarioResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
@@ -100,10 +100,16 @@ class BeneficiarioResource extends Resource
                     ->iconButton()
                     ->tooltip('Eliminar')
                     ->color('danger'),
+                Tables\Actions\RestoreAction::make()
+                    ->iconButton()
+                    ->tooltip('Restaurar')
+                    ->color('success'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make()
+                        ->color('success'),
                 ]),
             ]);
     }
