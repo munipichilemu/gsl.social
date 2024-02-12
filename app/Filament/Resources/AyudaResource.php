@@ -122,7 +122,7 @@ class AyudaResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->label('')
+                    ->iconButton()
                     ->tooltip('Editar'),
             ])
             ->bulkActions([

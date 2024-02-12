@@ -44,11 +44,11 @@ class TipoResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->label('')
+                    ->iconButton()
                     ->tooltip('Editar')
                     ->color('info'),
                 Tables\Actions\DeleteAction::make()
-                    ->label('')
+                    ->iconButton()
                     ->tooltip('Eliminar')
                     ->color('danger'),
             ])
