@@ -26,7 +26,7 @@ class AyudaResource extends Resource
                     ->label('RUT Beneficiario')
                     ->prefixIcon('heroicon-o-identification')
                     ->options(Beneficiario::all()->pluck('rut', 'id'))
-                    ->placeholder('Ingrese el RUT del beneficiario…')
+                    ->placeholder('Ingrese el RUT del beneficiario')
                     ->searchable()
                     ->preload()
                     ->required(),
