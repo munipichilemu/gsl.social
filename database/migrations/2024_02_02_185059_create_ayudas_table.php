@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('social_report_date');
             $table->integer('amount_given');
             $table->date('given_at');
-            $table->boolean('report_submitted');
-            $table->text('observations');
+            $table->boolean('report_submitted')->default(false);
+            $table->text('observations')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
