@@ -27,7 +27,9 @@ class AyudaResource extends Resource
                     ->prefixIcon('heroicon-o-identification')
                     ->options(Beneficiario::all()->pluck('rut', 'id'))
                     ->placeholder('Ingrese el RUT del beneficiario')
+                    ->selectablePlaceholder(false)
                     ->searchable()
+                    ->optionsLimit(5)
                     ->preload()
                     ->required(),
 
@@ -53,6 +55,7 @@ class AyudaResource extends Resource
                 Forms\Components\Select::make('tipo_ayuda')
                     ->label('Ayudas otorgadas')
                     ->multiple()
+                    ->minItems(1)
                     ->preload()
                     ->relationship('tipos', 'name'),
                 Forms\Components\Toggle::make('report_submitted')
@@ -83,10 +86,11 @@ class AyudaResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 Tables\Columns\TextColumn::make('social_report_num')
-                    ->label('Nº Informe Social')
+                    ->label('N.º Informe Social')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('social_report_date')
                     ->label('Fecha Informe Social')
+                    ->alignRight()
                     ->date('d F Y'),
                 Tables\Columns\TextColumn::make('tipos.name')
                     ->label('Ayudas prestadas')
@@ -95,9 +99,11 @@ class AyudaResource extends Resource
                 Tables\Columns\TextColumn::make('amount_given')
                     ->label('Monto')
                     ->prefix('$')
+                    ->alignRight()
                     ->numeric(),
                 Tables\Columns\TextColumn::make('given_at')
                     ->label('Fecha otorgada')
+                    ->alignRight()
                     ->date('d F Y'),
 
                 Tables\Columns\ToggleColumn::make('report_submitted')
@@ -120,6 +126,7 @@ class AyudaResource extends Resource
             ->filters([
                 //
             ])
+            ->toggleColumnsTriggerAction(fn (Tables\Actions\Action $action) => $action->button()->label('Columnas'))
             ->actions([
                 Tables\Actions\EditAction::make()
                     ->iconButton()
