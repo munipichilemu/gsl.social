@@ -24,8 +24,8 @@ class BeneficiarioResource extends Resource
             ->schema([
                 RutInput::make('rut')
                     ->label('RUT Beneficiario')
-                    ->rules(['rut', 'num_unique:beneficiarios,rut_num'])
                     ->rut()
+                    ->rules(['rut', 'num_unique:beneficiarios,rut_num'])
                     ->validationAttribute('beneficiario')
                     ->required(),
 
