@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\AyudasEntregadasExporter;
 use App\Filament\Resources\AyudaResource\Pages;
 use App\Models\Ayuda;
 use App\Models\Beneficiario;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -133,6 +135,13 @@ class AyudaResource extends Resource
                 Tables\Actions\EditAction::make()
                     ->iconButton()
                     ->tooltip('Editar'),
+            ])
+            ->headerActions([
+                Tables\Actions\ExportAction::make()
+                    ->exporter(AyudasEntregadasExporter::class)
+                    ->formats([
+                        ExportFormat::Xlsx,
+                    ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
