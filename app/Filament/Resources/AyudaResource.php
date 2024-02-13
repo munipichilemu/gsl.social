@@ -84,11 +84,7 @@ class AyudaResource extends Resource
                 Tables\Columns\TextColumn::make('beneficiario.full_name')
                     ->description(fn (Ayuda $record) => $record->beneficiario->rut)
                     ->weight(FontWeight::Bold)
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('beneficiario.rut')
-                    ->label('RUT')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->searchable(['names', 'lastname_1', 'lastname_2', 'rut_num']),
 
                 Tables\Columns\TextColumn::make('social_report_num')
                     ->label('N.º Informe Social')
