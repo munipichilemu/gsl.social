@@ -31,7 +31,12 @@ class AyudaResource extends Resource
                     ->searchable()
                     ->optionsLimit(5)
                     ->preload()
+                    ->live()
                     ->required(),
+                Forms\Components\Placeholder::make('selected_beneficiario')
+                    ->label('')
+                    ->extraAttributes(['class' => 'mt-6 pt-3 text-gray-600 text-xl font-bold'])
+                    ->content(fn (Forms\Get $get): ?string => Beneficiario::find($get('beneficiario_id'))?->full_name),
 
                 Forms\Components\TextInput::make('social_report_num')
                     ->label('Nº Informe Social')
@@ -126,6 +131,7 @@ class AyudaResource extends Resource
             ->filters([
                 //
             ])
+            ->filtersTriggerAction(fn (Tables\Actions\Action $action) => $action->button()->label('Filtros'))
             ->toggleColumnsTriggerAction(fn (Tables\Actions\Action $action) => $action->button()->label('Columnas'))
             ->actions([
                 Tables\Actions\EditAction::make()
