@@ -64,7 +64,7 @@ class BeneficiarioResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('rut')
                     ->label('RUT')
-                    ->searchable(),
+                    ->searchable(['rut_num']),
                 Tables\Columns\TextColumn::make('full_name')
                     ->label('Nombre Completo')
                     ->searchable(),
