@@ -16,7 +16,7 @@ class BeneficiarioResource extends Resource
 {
     protected static ?string $model = Beneficiario::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationIcon = 'heroicon-s-users';
 
     public static function form(Form $form): Form
     {

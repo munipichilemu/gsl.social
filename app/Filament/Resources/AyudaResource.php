@@ -19,7 +19,7 @@ class AyudaResource extends Resource
 {
     protected static ?string $model = Ayuda::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document';
+    protected static ?string $navigationIcon = 'heroicon-s-document';
 
     public static function form(Form $form): Form
     {
