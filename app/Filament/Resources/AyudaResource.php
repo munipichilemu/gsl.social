@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
 class AyudaResource extends Resource
 {
@@ -127,7 +128,12 @@ class AyudaResource extends Resource
             ])
             ->defaultSort('id', 'desc')
             ->filters([
-                //
+                DateRangeFilter::make('created_at')
+                    ->label('Fecha de ingreso'),
+                DateRangeFilter::make('given_at')
+                    ->label('Fecha otorgamiento'),
+                DateRangeFilter::make('social_report_date')
+                    ->label('Fecha Informe Social'),
             ])
             ->filtersTriggerAction(fn (Tables\Actions\Action $action) => $action->button()->label('Filtros'))
             ->toggleColumnsTriggerAction(fn (Tables\Actions\Action $action) => $action->button()->label('Columnas'))
