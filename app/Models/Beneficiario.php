@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laragear\Rut\HasRut;
@@ -9,7 +10,7 @@ use Parfaitementweb\FilamentCountryField\Forms\Components\Country;
 
 class Beneficiario extends Model
 {
-    use HasRut, SoftDeletes;
+    use HasFactory, HasRut, SoftDeletes;
 
     protected $fillable = [
         'rut',
