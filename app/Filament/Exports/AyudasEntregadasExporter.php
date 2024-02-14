@@ -4,6 +4,7 @@ namespace App\Filament\Exports;
 
 use App\Models\Ayuda;
 use App\Models\Beneficiario;
+use Carbon\Carbon;
 use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;
@@ -23,7 +24,8 @@ class AyudasEntregadasExporter extends Exporter
             ExportColumn::make('social_report_num')
                 ->label('N.º Informe Social'),
             ExportColumn::make('given_at')
-                ->label('Fecha otorgamiento'),
+                ->label('Fecha otorgamiento')
+                ->formatStateUsing(fn (?string $state): string => Carbon::parse($state)->format('d-m-Y')),
             ExportColumn::make('beneficiario.rut_num')
                 ->label('RUN'),
             ExportColumn::make('beneficiario.rut_vd')
