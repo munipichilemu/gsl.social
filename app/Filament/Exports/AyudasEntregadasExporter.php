@@ -36,7 +36,7 @@ class AyudasEntregadasExporter extends Exporter
                 ->label('Apellido Materno'),
             ExportColumn::make('beneficiario.nationality')
                 ->label('Nacionalidad')
-                ->formatStateUsing(fn (string $state): string => Beneficiario::country($state)),
+                ->formatStateUsing(fn (?string $state): string => Beneficiario::country($state)),
             ExportColumn::make('amount_given')
                 ->label('Monto'),
         ];
