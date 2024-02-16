@@ -38,5 +38,11 @@ class DatabaseSeeder extends Seeder
             ['id' => 19, 'name' => 'Caja de alimentos', 'description' => 'Entrega de caja de mercadería.', 'created_at' => '2024-02-12 18:48:07', 'updated_at' => '2024-02-12 18:48:07', 'deleted_at' => null],
             ['id' => 20, 'name' => 'Vales de gas', 'description' => 'Aporte para compra de balón de gas mediante canje de vale.', 'created_at' => '2024-02-12 18:50:56', 'updated_at' => '2024-02-12 18:50:56', 'deleted_at' => null],
         ]);
+
+        /* Crear roles y privilegios base */
+        $this->call([
+            ShieldSeeder::class,
+            AdminUserSeeder::class,
+        ]);
     }
 }
