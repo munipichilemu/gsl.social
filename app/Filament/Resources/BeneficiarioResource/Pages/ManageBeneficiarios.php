@@ -13,7 +13,10 @@ class ManageBeneficiarios extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Registrar Beneficiario')
+                ->icon('heroicon-s-user-plus')
+                ->createAnother(false),
         ];
     }
 }

@@ -13,7 +13,9 @@ class ListAyudas extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Registrar Ayuda')
+                ->icon('heroicon-s-document-plus'),
         ];
     }
 }

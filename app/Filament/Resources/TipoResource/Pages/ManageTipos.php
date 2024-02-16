@@ -13,7 +13,10 @@ class ManageTipos extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Nuevo Tipo')
+                ->icon('heroicon-s-tag')
+                ->createAnother(false),
         ];
     }
 }
