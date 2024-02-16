@@ -10,6 +10,7 @@ use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Colors\Color;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -19,7 +20,7 @@ class AyudaResource extends Resource
 {
     protected static ?string $model = Ayuda::class;
 
-    protected static ?string $navigationIcon = 'heroicon-s-document';
+    protected static ?string $navigationIcon = 'heroicon-s-lifebuoy';
 
     public static function form(Form $form): Form
     {
@@ -144,6 +145,9 @@ class AyudaResource extends Resource
             ])
             ->headerActions([
                 Tables\Actions\ExportAction::make()
+                    ->label('Exportar registros')
+                    ->icon('heroicon-s-table-cells')
+                    ->color(Color::Green)
                     ->exporter(AyudasEntregadasExporter::class)
                     ->formats([
                         ExportFormat::Xlsx,
