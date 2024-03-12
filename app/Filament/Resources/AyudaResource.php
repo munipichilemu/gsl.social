@@ -130,11 +130,14 @@ class AyudaResource extends Resource
             ->defaultSort('id', 'desc')
             ->filters([
                 DateRangeFilter::make('created_at')
-                    ->label('Fecha de ingreso'),
+                    ->label('Fecha de ingreso')
+                    ->withIndicator(),
                 DateRangeFilter::make('given_at')
-                    ->label('Fecha otorgamiento'),
+                    ->label('Fecha otorgamiento')
+                    ->withIndicator(),
                 DateRangeFilter::make('social_report_date')
-                    ->label('Fecha Informe Social'),
+                    ->label('Fecha Informe Social')
+                    ->withIndicator(),
             ])
             ->filtersTriggerAction(fn (Tables\Actions\Action $action) => $action->button()->label('Filtros'))
             ->toggleColumnsTriggerAction(fn (Tables\Actions\Action $action) => $action->button()->label('Columnas'))
